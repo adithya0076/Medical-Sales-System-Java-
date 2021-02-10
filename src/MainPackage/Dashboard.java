@@ -1,4 +1,3 @@
-
 package MainPackage;
 
 import com.mysql.jdbc.Connection;
@@ -13,17 +12,18 @@ import javax.swing.table.DefaultTableModel;
 
 public class Dashboard extends javax.swing.JFrame {
 
-
     public Dashboard() {
         initComponents();
-         setVisible(true);
-             setSize(970,540);
+        setVisible(true);
+        setSize(970, 540);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        txtVol.setVisible(false);
+        lblVol.setVisible(false);
+        txtPrice.setVisible(false);
+        lblP.setVisible(false);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,16 +36,6 @@ public class Dashboard extends javax.swing.JFrame {
         cbType = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         table1 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -74,6 +64,19 @@ public class Dashboard extends javax.swing.JFrame {
         txtdocN = new javax.swing.JTextField();
         btnPhar = new javax.swing.JButton();
         btnDoc = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbltwo = new javax.swing.JTable();
+        cbChoose = new javax.swing.JComboBox<>();
+        txtId = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtVol = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
+        btnEnter = new javax.swing.JButton();
+        lblid = new javax.swing.JLabel();
+        lbln = new javax.swing.JLabel();
+        lblVol = new javax.swing.JLabel();
+        lblP = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTabbedPane8 = new javax.swing.JTabbedPane();
 
@@ -116,54 +119,6 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane1.setBounds(23, 70, 860, 310);
 
         jTabbedPane9.addTab("Sales Check", jPanel2);
-
-        jPanel3.setLayout(null);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
-
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 90, 360, 290);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBox1);
-        jComboBox1.setBounds(40, 30, 140, 26);
-
-        jTextField1.setText("jTextField1");
-        jPanel3.add(jTextField1);
-        jTextField1.setBounds(490, 40, 71, 24);
-
-        jTextField2.setText("jTextField2");
-        jPanel3.add(jTextField2);
-        jTextField2.setBounds(650, 40, 71, 24);
-
-        jTextField3.setText("jTextField3");
-        jPanel3.add(jTextField3);
-        jTextField3.setBounds(650, 110, 71, 24);
-
-        jTextField4.setText("jTextField4");
-        jPanel3.add(jTextField4);
-        jTextField4.setBounds(650, 190, 74, 24);
-
-        jButton1.setText("jButton1");
-        jPanel3.add(jButton1);
-        jButton1.setBounds(570, 270, 170, 60);
-
-        jLabel14.setText("jLabel14");
-        jPanel3.add(jLabel14);
-        jLabel14.setBounds(490, 20, 47, 16);
-
-        jTabbedPane9.addTab("Clients & Stock", jPanel3);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -318,6 +273,68 @@ public class Dashboard extends javax.swing.JFrame {
 
         jTabbedPane9.addTab("Sales", jPanel1);
 
+        jPanel3.setLayout(null);
+
+        tbltwo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tbltwo);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(40, 90, 360, 290);
+
+        cbChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Doctors", "Pharmacy", "Products" }));
+        cbChoose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbChooseActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cbChoose);
+        cbChoose.setBounds(40, 30, 140, 26);
+        jPanel3.add(txtId);
+        txtId.setBounds(490, 40, 100, 24);
+        jPanel3.add(txtName);
+        txtName.setBounds(650, 40, 110, 24);
+        jPanel3.add(txtVol);
+        txtVol.setBounds(650, 110, 110, 24);
+        jPanel3.add(txtPrice);
+        txtPrice.setBounds(650, 190, 110, 24);
+
+        btnEnter.setText("Enter");
+        btnEnter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEnterMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnEnter);
+        btnEnter.setBounds(570, 270, 170, 60);
+
+        lblid.setText("Enter ID");
+        jPanel3.add(lblid);
+        lblid.setBounds(490, 20, 80, 16);
+
+        lbln.setText("Enter Name");
+        jPanel3.add(lbln);
+        lbln.setBounds(650, 20, 80, 16);
+
+        lblVol.setText("Enter Volume");
+        jPanel3.add(lblVol);
+        lblVol.setBounds(650, 90, 80, 16);
+
+        lblP.setText("Enter Price");
+        jPanel3.add(lblP);
+        lblP.setBounds(650, 170, 80, 16);
+
+        jTabbedPane9.addTab("Clients & Stock", jPanel3);
+
         getContentPane().add(jTabbedPane9);
         jTabbedPane9.setBounds(40, 70, 900, 430);
 
@@ -331,70 +348,70 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTypeActionPerformed
-       if(cbType.getSelectedIndex() == 1){
-             
-           DefaultTableModel model = new DefaultTableModel();
-    
-           model.addColumn("Pharmacy_ID");
-           model.addColumn("Pharmacy_Name");
-           model.addColumn("Product_ID");
-           model.addColumn("Product_Name");
-           model.addColumn("Product_Volume");
-           model.addColumn("Product_Qty");
-           model.addColumn("Sales_Amount");
-           model.addColumn("Sale_Date");
-           
-           try {
-            Connection con = getConnection();
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM `pharmacy_records`");
-            ResultSet Rs = pstm.executeQuery();
-            while(Rs.next()){
-                model.addRow(new Object[]{Rs.getString(1), Rs.getString(2),Rs.getString(3),Rs.getString(4),Rs.getDouble(5),Rs.getDouble(6),Rs.getDouble(7),Rs.getString(8)});
-                table1.setModel(model);
-            
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-           
-       }
-         if(cbType.getSelectedIndex() == 2){
-             
-           DefaultTableModel model = new DefaultTableModel();
-    
-           model.addColumn("Doctor_Name");
-           model.addColumn("Product_ID");
-           model.addColumn("Product_Name");
-           model.addColumn("Product_Volume");
-           model.addColumn("Product_Qty");
-           model.addColumn("Sales_Amount");
-           model.addColumn("Sale_Date");
-           
-           try {
+        if (cbType.getSelectedIndex() == 1) {
 
-Connection con = getConnection();
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM `doctor_records`");
-            ResultSet Rs = pstm.executeQuery();
-            while(Rs.next()){
-                model.addRow(new Object[]{Rs.getString(1), Rs.getString(2),Rs.getString(3),Rs.getDouble(4),Rs.getDouble(5),Rs.getDouble(6),Rs.getString(7)});
-                table1.setModel(model);
-            
+            DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Pharmacy_ID");
+            model.addColumn("Pharmacy_Name");
+            model.addColumn("Product_ID");
+            model.addColumn("Product_Name");
+            model.addColumn("Product_Volume");
+            model.addColumn("Product_Qty");
+            model.addColumn("Sales_Amount");
+            model.addColumn("Sale_Date");
+
+            try {
+                Connection con = getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `pharmacy_records`");
+                ResultSet Rs = pstm.executeQuery();
+                while (Rs.next()) {
+                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2), Rs.getString(3), Rs.getString(4), Rs.getDouble(5), Rs.getDouble(6), Rs.getDouble(7), Rs.getString(8)});
+                    table1.setModel(model);
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+
         }
-           
-       }
+        if (cbType.getSelectedIndex() == 2) {
+
+            DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Doctor_Name");
+            model.addColumn("Product_ID");
+            model.addColumn("Product_Name");
+            model.addColumn("Product_Volume");
+            model.addColumn("Product_Qty");
+            model.addColumn("Sales_Amount");
+            model.addColumn("Sale_Date");
+
+            try {
+
+                Connection con = getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `doctor_records`");
+                ResultSet Rs = pstm.executeQuery();
+                while (Rs.next()) {
+                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2), Rs.getString(3), Rs.getDouble(4), Rs.getDouble(5), Rs.getDouble(6), Rs.getString(7)});
+                    table1.setModel(model);
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
     }//GEN-LAST:event_cbTypeActionPerformed
 
     private void txtpharNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtpharNMouseClicked
         try {
             Connection con = getConnection();
-            PreparedStatement pstm = con.prepareStatement("SELECT pharmacy_name FROM `pharmacy_list` WHERE pharmacy_ID = '"+txtpharID.getText()+"'");
+            PreparedStatement pstm = con.prepareStatement("SELECT pharmacy_name FROM `pharmacy_list` WHERE pharmacy_ID = '" + txtpharID.getText() + "'");
             ResultSet Rs = pstm.executeQuery();
-            while(Rs.next()){
-               txtpharN.setText(Rs.getString("pharmacy_name"));
-            
+            while (Rs.next()) {
+                txtpharN.setText(Rs.getString("pharmacy_name"));
+
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -402,13 +419,13 @@ Connection con = getConnection();
     }//GEN-LAST:event_txtpharNMouseClicked
 
     private void txtdocNMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtdocNMouseClicked
-            try {
+        try {
             Connection con = getConnection();
-            PreparedStatement pstm = con.prepareStatement("SELECT doctor_name FROM `doctor_list` WHERE doctor_ID = '"+txtdocID.getText()+"'");
+            PreparedStatement pstm = con.prepareStatement("SELECT doctor_name FROM `doctor_list` WHERE doctor_ID = '" + txtdocID.getText() + "'");
             ResultSet Rs = pstm.executeQuery();
-            while(Rs.next()){
-               txtdocN.setText(Rs.getString("doctor_name"));
-            
+            while (Rs.next()) {
+                txtdocN.setText(Rs.getString("doctor_name"));
+
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -416,8 +433,8 @@ Connection con = getConnection();
     }//GEN-LAST:event_txtdocNMouseClicked
 
     private void btnPharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPharMouseClicked
-        String pId,pn,dt,phid,phn;
-        double vol,qty,salA;
+        String pId, pn, dt, phid, phn;
+        double vol, qty, salA;
         phid = txtpharID.getText();
         phn = txtpharN.getText();
         pId = txtprodId.getText();
@@ -426,34 +443,34 @@ Connection con = getConnection();
         qty = Double.parseDouble(txtprodqtty.getText());
         salA = Double.parseDouble(txtSaleA.getText());
         SimpleDateFormat sdft = new SimpleDateFormat("MM/d/YYYY");
-    
+
         dt = sdft.format(dtpSaleDate.getDate());
-           
+
         try {
             Connection con = getConnection();
-          Statement stmt =  con.createStatement();
-            String sqlQ = "INSERT INTO `pharmacy_records` VALUES ('"+phid+"', '"+phn+"', '"+pId+"', '"+pn+"', '"+vol+"', '"+qty+"', '"+salA+"', '"+dt+"')";
-                stmt.executeUpdate(sqlQ);
-                JOptionPane.showMessageDialog(null, "Data Saved.");
-              txtpharID.setText(null);
-              txtpharN.setText(null);
-              txtprodId.setText(null);
-              txtprodname.setText(null);
-              txtprodvol.setText(null);
-              txtprodqtty.setText(null);
-              txtprice.setText(null);
-              txtSaleA.setText(null);
-                
+            Statement stmt = con.createStatement();
+            String sqlQ = "INSERT INTO `pharmacy_records` VALUES ('" + phid + "', '" + phn + "', '" + pId + "', '" + pn + "', '" + vol + "', '" + qty + "', '" + salA + "', '" + dt + "')";
+            stmt.executeUpdate(sqlQ);
+            JOptionPane.showMessageDialog(null, "Data Saved.");
+            txtpharID.setText(null);
+            txtpharN.setText(null);
+            txtprodId.setText(null);
+            txtprodname.setText(null);
+            txtprodvol.setText(null);
+            txtprodqtty.setText(null);
+            txtprice.setText(null);
+            txtSaleA.setText(null);
+
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "Database not Connected.");
-          System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Database not Connected.");
+            System.out.println(e.getMessage());
         }
-  
+
     }//GEN-LAST:event_btnPharMouseClicked
 
     private void txtSaleAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSaleAMouseClicked
         double price = Double.parseDouble(txtprice.getText());
-     
+
         double qty = Double.parseDouble(txtprodqtty.getText());
         double total = price * qty;
         txtSaleA.setText(Double.toString(total));
@@ -462,11 +479,11 @@ Connection con = getConnection();
     private void txtprodnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtprodnameMouseClicked
         try {
             Connection con = getConnection();
-            PreparedStatement pstm = con.prepareStatement("SELECT product_name FROM `products`  WHERE product_ID = '"+txtprodId.getText()+"'");
+            PreparedStatement pstm = con.prepareStatement("SELECT product_name FROM `products`  WHERE product_ID = '" + txtprodId.getText() + "'");
             ResultSet Rs = pstm.executeQuery();
-            while(Rs.next()){
-               txtprodname.setText(Rs.getString("product_name"));
-            
+            while (Rs.next()) {
+                txtprodname.setText(Rs.getString("product_name"));
+
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -474,9 +491,9 @@ Connection con = getConnection();
     }//GEN-LAST:event_txtprodnameMouseClicked
 
     private void btnDocMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDocMouseClicked
-         String pId,pn,dt,dn;
-        double vol,qty,salA;
-       
+        String pId, pn, dt, dn;
+        double vol, qty, salA;
+
         dn = txtdocN.getText();
         pId = txtprodId.getText();
         pn = txtprodname.getText();
@@ -484,47 +501,166 @@ Connection con = getConnection();
         qty = Double.parseDouble(txtprodqtty.getText());
         salA = Double.parseDouble(txtSaleA.getText());
         SimpleDateFormat sdft = new SimpleDateFormat("MM/d/YYYY");
-    
+
         dt = sdft.format(dtpSaleDate.getDate());
-           
+
         try {
             Connection con = getConnection();
-          Statement stmt =  con.createStatement();
-            String sqlQ = "INSERT INTO `doctor_records` VALUES ( '"+dn+"', '"+pId+"', '"+pn+"', '"+vol+"', '"+qty+"', '"+salA+"', '"+dt+"')";
-                stmt.executeUpdate(sqlQ);
-                JOptionPane.showMessageDialog(null, "Data Saved.");
-              txtdocID.setText(null);
-              txtdocN.setText(null);
-              txtprodId.setText(null);
-              txtprodname.setText(null);
-              txtprodvol.setText(null);
-              txtprodqtty.setText(null);
-              txtprice.setText(null);
-              txtSaleA.setText(null);
-                
+            Statement stmt = con.createStatement();
+            String sqlQ = "INSERT INTO `doctor_records` VALUES ( '" + dn + "', '" + pId + "', '" + pn + "', '" + vol + "', '" + qty + "', '" + salA + "', '" + dt + "')";
+            stmt.executeUpdate(sqlQ);
+            JOptionPane.showMessageDialog(null, "Data Saved.");
+            txtdocID.setText(null);
+            txtdocN.setText(null);
+            txtprodId.setText(null);
+            txtprodname.setText(null);
+            txtprodvol.setText(null);
+            txtprodqtty.setText(null);
+            txtprice.setText(null);
+            txtSaleA.setText(null);
+
         } catch (Exception e) {
-          JOptionPane.showMessageDialog(null, "Database not Connected.");
-          System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Database not Connected.");
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnDocMouseClicked
 
-    public Connection getConnection()
-   {
-       Connection con;
-       try {
-               Class.forName("com.mysql.jdbc.Driver");
-           con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/medical_sales", "root","");
-           return con;
-       } catch (Exception e) {
-           e.printStackTrace();
-           return null;
-       }
-   }
-    
-  
-   
+    private void cbChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChooseActionPerformed
+        if (cbChoose.getSelectedIndex() == 1) {
+            txtVol.setVisible(false);
+            lblVol.setVisible(false);
+            txtPrice.setVisible(false);
+            lblP.setVisible(false);
+
+            DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Doctor ID");
+            model.addColumn("Doctor Name");
+
+            try {
+                Connection con = getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `doctor_list`");
+                ResultSet Rs = pstm.executeQuery();
+                while (Rs.next()) {
+                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2)});
+                    tbltwo.setModel(model);
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } else if (cbChoose.getSelectedIndex() == 2) {
+            txtVol.setVisible(false);
+            lblVol.setVisible(false);
+            txtPrice.setVisible(false);
+            lblP.setVisible(false);
+
+            DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Pharmacy ID");
+            model.addColumn("Pharmacy Name");
+
+            try {
+                Connection con = getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `pharmacy_list`");
+                ResultSet Rs = pstm.executeQuery();
+                while (Rs.next()) {
+                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2)});
+                    tbltwo.setModel(model);
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } else if (cbChoose.getSelectedIndex() == 3) {
+            txtVol.setVisible(true);
+            lblVol.setVisible(true);
+            txtPrice.setVisible(true);
+            lblP.setVisible(true);
+
+            DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Product ID");
+            model.addColumn("Product Name");
+            model.addColumn("Product Volume");
+            model.addColumn("Product Price");
+
+            try {
+                Connection con = getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `products`");
+                ResultSet Rs = pstm.executeQuery();
+                while (Rs.next()) {
+                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2), Rs.getDouble(3), Rs.getDouble(4)});
+                    tbltwo.setModel(model);
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_cbChooseActionPerformed
+
+    private void btnEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnterMouseClicked
+        if (cbChoose.getSelectedIndex() == 1) {
+            try {
+                Connection con = getConnection();
+                Statement stmt = con.createStatement();
+                String sqlQ = " INSERT INTO `doctor_list`  VALUES ('" + txtId.getText() + "', '" + txtName.getText() + "')";
+                stmt.executeUpdate(sqlQ);
+                JOptionPane.showMessageDialog(null, "Data Saved.");
+                txtId.setText(null);
+                txtName.setText(null);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Database not Connected.");
+                System.out.println(e.getMessage());
+             
+            }
+
+        } else if (cbChoose.getSelectedIndex() == 2) {
+            try {
+                Connection con = getConnection();
+                Statement stmt = con.createStatement();
+                String sqlQ = " INSERT INTO `pharmacy_list`  VALUES ('" + txtId.getText() + "', '" + txtName.getText() + "')";
+                stmt.executeUpdate(sqlQ);
+                JOptionPane.showMessageDialog(null, "Data Saved.");
+                txtId.setText(null);
+                txtName.setText(null);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Database not Connected.");
+                System.out.println(e.getMessage());
+            }
+        } else if (cbChoose.getSelectedIndex() == 3) {
+            try {
+                Connection con = getConnection();
+                Statement stmt = con.createStatement();
+                String sqlQ = " INSERT INTO `products` VALUES ('"+txtId.getText()+"', '"+txtName.getText()+"', '"+txtVol.getText().toString()+"', '"+txtPrice.getText().toString()+"')";
+                stmt.executeUpdate(sqlQ);
+                JOptionPane.showMessageDialog(null, "Data Saved.");
+                txtId.setText(null);
+                txtName.setText(null);
+                txtVol.setText(null);
+                txtPrice.setText(null);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Database not Connected.");
+                System.out.println(e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnEnterMouseClicked
+
+    public Connection getConnection() {
+        Connection con;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/medical_sales", "root", "");
+            return con;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static void main(String args[]) {
-        
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -536,17 +672,16 @@ Connection con = getConnection();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDoc;
+    private javax.swing.JButton btnEnter;
     private javax.swing.JButton btnPhar;
+    private javax.swing.JComboBox<String> cbChoose;
     private javax.swing.JComboBox<String> cbType;
     private com.toedter.calendar.JDateChooser dtpSaleDate;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -565,13 +700,17 @@ Connection con = getConnection();
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel lblP;
+    private javax.swing.JLabel lblVol;
+    private javax.swing.JLabel lblid;
+    private javax.swing.JLabel lbln;
     private javax.swing.JTable table1;
+    private javax.swing.JTable tbltwo;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtSaleA;
+    private javax.swing.JTextField txtVol;
     private javax.swing.JTextField txtdocID;
     private javax.swing.JTextField txtdocN;
     private javax.swing.JTextField txtpharID;
