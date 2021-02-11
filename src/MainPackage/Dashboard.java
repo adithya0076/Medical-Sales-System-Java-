@@ -83,6 +83,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblVol = new javax.swing.JLabel();
         lblP = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        btnMaps = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTabbedPane8 = new javax.swing.JTabbedPane();
         jLabel14 = new javax.swing.JLabel();
@@ -358,16 +359,17 @@ public class Dashboard extends javax.swing.JFrame {
 
         jTabbedPane9.addTab("Clients & Stock", jPanel3);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 898, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
-        );
+        jPanel5.setLayout(null);
+
+        btnMaps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
+        btnMaps.setText("Open Maps");
+        btnMaps.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMapsMouseClicked(evt);
+            }
+        });
+        jPanel5.add(btnMaps);
+        btnMaps.setBounds(540, 90, 250, 92);
 
         jTabbedPane9.addTab("Sellers", jPanel5);
 
@@ -765,6 +767,11 @@ public class Dashboard extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_btnReportActionPerformed
 
+    private void btnMapsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMapsMouseClicked
+        GoogleMapsSample newMap = new GoogleMapsSample();
+        newMap.createAndShowWindow();
+    }//GEN-LAST:event_btnMapsMouseClicked
+
     public Connection getConnection() {
         Connection con;
         try {
@@ -791,6 +798,7 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDoc;
     private javax.swing.JButton btnEnter;
+    private javax.swing.JButton btnMaps;
     private javax.swing.JButton btnPhar;
     private javax.swing.JButton btnReport;
     private javax.swing.JComboBox<String> cbChoose;

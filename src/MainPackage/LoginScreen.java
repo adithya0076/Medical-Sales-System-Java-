@@ -159,33 +159,25 @@ public class LoginScreen extends javax.swing.JFrame {
             Connection con = null;
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/medical_sales", "root", "");
-//          Statement stmt =  con.createStatement();
-//            String sqlQ = "SELECT * FROM student WHERE student_index='" + txtUsername.getText() + "' && pwd='" + txtPwd.getText()+ "'";
-//                 ResultSet rs = stmt.executeQuery(sqlQ);
 
             PreparedStatement st = (PreparedStatement) con.prepareStatement("Select email,pwd from login where email=? and pwd=?");
             st.setString(1, databaseUsername);
             st.setString(2, databasePassword);
             ResultSet rs = st.executeQuery();
-            // Check Username and Password
-//    while (rs.next()) {
-//        databaseUsername = rs.getString("student_index");
-//        databasePassword = rs.getString("pwd");
-//    }
+
             if (rs.next()) {
                 dispose();
-                
+
                 JOptionPane.showMessageDialog(null, "You have successfully logged in");
-                  this.hide();
-             Dashboard ds = new Dashboard(); 
-             ds.show();
+                this.hide();
+                Dashboard ds = new Dashboard();
+                ds.show();
             } else {
                 JOptionPane.showMessageDialog(null, "Wrong Username & Password");
             }
 
 //    if (txtUsername.equals(databaseUsername) && txtPwd.equals(databasePassword)) {
 //        System.out.println("Successful Login!\n----");
-       
 //    } else {
 //        System.out.println("Incorrect Password\n----");
 //        JOptionPane.showMessageDialog(null, "Password Incorrect.");
