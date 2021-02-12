@@ -21,17 +21,17 @@ public class GoogleMapsSample {
    public void createAndShowWindow() {
         JFrame frame = new JFrame();
         JButton quit = new JButton("Quit");
-        quit.addActionListener(event -> System.exit(0));
+     
         jfxPanel = new JFXPanel();
         Platform.runLater(this::createJFXContent);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(quit);
+ 
 
         frame.add(BorderLayout.CENTER, jfxPanel);
         frame.add(BorderLayout.SOUTH, buttonPanel);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
         frame.setSize(800,  800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);

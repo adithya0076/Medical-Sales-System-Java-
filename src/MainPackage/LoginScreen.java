@@ -21,6 +21,9 @@ public class LoginScreen extends javax.swing.JFrame {
     /**
      * Creates new form LoginScreen
      */
+ String Uname;
+    
+    
     public LoginScreen() {
         initComponents();
         setVisible(true);
@@ -30,6 +33,8 @@ public class LoginScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+  
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,16 +47,17 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jDialog1 = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         btnLogin = new java.awt.Button();
         txtUsername = new java.awt.TextField();
         checkbox1 = new java.awt.Checkbox();
         button2 = new java.awt.Button();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         txtPwd = new javax.swing.JPasswordField();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -73,26 +79,17 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/key.png"))); // NOI18N
         jLabel1.setText("Password ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(220, 290, 90, 70);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/medical.png"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(-90, 70, 1020, 120);
+        jLabel1.setBounds(200, 290, 110, 70);
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
         jLabel5.setText("Dont have an Account?");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(580, 250, 160, 40);
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel8.setText("Medical Sales System");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(60, 10, 440, 70);
 
         btnLogin.setBackground(new java.awt.Color(51, 51, 255));
         btnLogin.setLabel("Log in");
@@ -110,6 +107,7 @@ public class LoginScreen extends javax.swing.JFrame {
         txtUsername.setBounds(320, 270, 180, 30);
 
         checkbox1.setBackground(new java.awt.Color(255, 255, 255));
+        checkbox1.setForeground(new java.awt.Color(0, 0, 102));
         checkbox1.setLabel("Remember username");
         checkbox1.setName("chbRem"); // NOI18N
         getContentPane().add(checkbox1);
@@ -124,13 +122,18 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(button2);
-        button2.setBounds(580, 290, 300, 40);
+        button2.setBounds(580, 290, 310, 40);
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/email.png"))); // NOI18N
         jLabel6.setText("Username ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(220, 250, 90, 60);
+        jLabel6.setBounds(200, 250, 110, 60);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/profile.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(300, 110, 160, 130);
 
         txtPwd.setBackground(new java.awt.Color(255, 255, 255));
         txtPwd.setForeground(new java.awt.Color(0, 0, 0));
@@ -138,10 +141,23 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(txtPwd);
         txtPwd.setBounds(320, 312, 180, 30);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/—Pngtree—blue gradient watercolor wild poster_978316.jpg"))); // NOI18N
-        jLabel3.setText("Username");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 920, 560);
+        kGradientPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        kGradientPanel1.setkEndColor(new java.awt.Color(255, 102, 255));
+        kGradientPanel1.setkStartColor(new java.awt.Color(255, 255, 51));
+        kGradientPanel1.setLayout(null);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/medicine.png"))); // NOI18N
+        kGradientPanel1.add(jLabel3);
+        jLabel3.setBounds(630, 30, 310, 240);
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel8.setText("Medical Sales System");
+        kGradientPanel1.add(jLabel8);
+        jLabel8.setBounds(20, 10, 440, 70);
+
+        getContentPane().add(kGradientPanel1);
+        kGradientPanel1.setBounds(0, 0, 920, 560);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,6 +171,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try {
             String databaseUsername = txtUsername.getText();
+            Uname = databaseUsername;
             String databasePassword = txtPwd.getText();
             Connection con = null;
             Class.forName("com.mysql.jdbc.Driver");
@@ -170,7 +187,8 @@ public class LoginScreen extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "You have successfully logged in");
                 this.hide();
-                Dashboard ds = new Dashboard();
+                Dashboard ds = new Dashboard(this,databaseUsername);
+                
                 ds.show();
             } else {
                 JOptionPane.showMessageDialog(null, "Wrong Username & Password");
@@ -186,7 +204,7 @@ public class LoginScreen extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Database not connected.");
         }
-
+       
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -214,12 +232,13 @@ public class LoginScreen extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginScreen().setVisible(true);
+                LoginScreen ls = new LoginScreen();
+                ls.setVisible(true);
+              
             }
         });
     }
@@ -232,11 +251,18 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JPasswordField txtPwd;
     private java.awt.TextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    String getUname() {
+          
+        return  Uname;
+    }
+   
 }

@@ -55,7 +55,7 @@ public class RegisterScreen extends javax.swing.JFrame  {
         btnRegister = new javax.swing.JButton();
         txtemail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(930, 600));
@@ -64,40 +64,45 @@ public class RegisterScreen extends javax.swing.JFrame  {
         getContentPane().setLayout(null);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel8.setForeground(new java.awt.Color(0, 51, 102));
         jLabel8.setText("Medical Sales System");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(60, 10, 440, 70);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/name.png"))); // NOI18N
         jLabel1.setText("Last Name");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(110, 280, 81, 30);
+        jLabel1.setBounds(91, 280, 100, 30);
 
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/name.png"))); // NOI18N
         jLabel2.setText("First Name");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 230, 81, 30);
+        jLabel2.setBounds(91, 230, 120, 30);
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel5.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/key.png"))); // NOI18N
         jLabel5.setText("Enter a Password");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(110, 410, 135, 30);
+        jLabel5.setBounds(85, 410, 160, 30);
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/placeholder.png"))); // NOI18N
         jLabel6.setText("Regional Center");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(110, 360, 124, 30);
+        jLabel6.setBounds(84, 360, 150, 30);
 
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/key.png"))); // NOI18N
         jLabel7.setText("Re-enter Password");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(110, 460, 135, 30);
+        jLabel7.setBounds(85, 460, 160, 30);
         getContentPane().add(txtfname);
         txtfname.setBounds(300, 230, 148, 24);
         getContentPane().add(txtlname);
@@ -111,10 +116,11 @@ public class RegisterScreen extends javax.swing.JFrame  {
         getContentPane().add(cbRegion);
         cbRegion.setBounds(300, 360, 151, 26);
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/medical2.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/profile.png"))); // NOI18N
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(300, 84, 260, 50);
+        jLabel9.setBounds(670, 80, 250, 170);
 
+        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,14 +133,16 @@ public class RegisterScreen extends javax.swing.JFrame  {
         txtemail.setBounds(300, 180, 185, 24);
 
         jLabel10.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel10.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/email.png"))); // NOI18N
         jLabel10.setText("Email");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(110, 180, 104, 30);
+        jLabel10.setBounds(94, 180, 120, 30);
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/—Pngtree—blue gradient watercolor wild poster_978316.jpg"))); // NOI18N
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(-9, -6, 930, 600);
+        kGradientPanel1.setkEndColor(new java.awt.Color(255, 255, 102));
+        kGradientPanel1.setkStartColor(new java.awt.Color(255, 102, 255));
+        getContentPane().add(kGradientPanel1);
+        kGradientPanel1.setBounds(0, 0, 930, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,13 +221,13 @@ public class RegisterScreen extends javax.swing.JFrame  {
     private javax.swing.JComboBox<String> cbRegion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JTextField txtPwd;
     private javax.swing.JTextField txtRePwd;
     private javax.swing.JTextField txtemail;

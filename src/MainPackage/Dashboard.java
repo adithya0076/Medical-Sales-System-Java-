@@ -1,29 +1,54 @@
 package MainPackage;
 
 import com.mysql.jdbc.Connection;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.print.PrinterException;
 import javax.swing.JFrame;
 import java.sql.*;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
-public class Dashboard extends javax.swing.JFrame {
+public class Dashboard extends javax.swing.JFrame implements ActionListener{
+
+    String email;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
 
     public Dashboard() {
         initComponents();
         setVisible(true);
-        setSize(970, 540);
+        setSize(1160, 610);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         txtVol.setVisible(false);
         lblVol.setVisible(false);
         txtPrice.setVisible(false);
         lblP.setVisible(false);
+
+    }
+
+    public Dashboard(Component parent, String Uname) {
+        initComponents();
+        setVisible(true);
+        setSize(1160, 610);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        txtVol.setVisible(false);
+        lblVol.setVisible(false);
+        txtPrice.setVisible(false);
+        lblP.setVisible(false);
+        //this.parent = parent;
+        this.email = Uname;
+        updateClock();
+        new Timer(1000, (ActionListener) this).start();
     }
 
     @SuppressWarnings("unchecked")
@@ -32,18 +57,34 @@ public class Dashboard extends javax.swing.JFrame {
 
         utilCalendarModel1 = new org.jdatepicker.impl.UtilCalendarModel();
         utilCalendarModel2 = new org.jdatepicker.impl.UtilCalendarModel();
-        jLabel1 = new javax.swing.JLabel();
+        jTabbedPane8 = new javax.swing.JTabbedPane();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
         jTabbedPane9 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        cbType = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblthree = new javax.swing.JTable();
         cbReport = new javax.swing.JComboBox<>();
         btnReport = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        kGradientPanel3 = new keeptoo.KGradientPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbltwo = new javax.swing.JTable();
+        cbChoose = new javax.swing.JComboBox<>();
+        txtId = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtVol = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
+        btnEnter = new javax.swing.JButton();
+        lblid = new javax.swing.JLabel();
+        lbln = new javax.swing.JLabel();
+        lblVol = new javax.swing.JLabel();
+        lblP = new javax.swing.JLabel();
+        kGradientPanel5 = new keeptoo.KGradientPanel();
+        jPanel5 = new javax.swing.JPanel();
+        btnMaps = new javax.swing.JButton();
+        kGradientPanel6 = new keeptoo.KGradientPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblfour = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtprodId = new javax.swing.JTextField();
@@ -69,67 +110,45 @@ public class Dashboard extends javax.swing.JFrame {
         txtdocN = new javax.swing.JTextField();
         btnPhar = new javax.swing.JButton();
         btnDoc = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbltwo = new javax.swing.JTable();
-        cbChoose = new javax.swing.JComboBox<>();
-        txtId = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtVol = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        btnEnter = new javax.swing.JButton();
-        lblid = new javax.swing.JLabel();
-        lbln = new javax.swing.JLabel();
-        lblVol = new javax.swing.JLabel();
-        lblP = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        btnMaps = new javax.swing.JButton();
+        kGradientPanel7 = new keeptoo.KGradientPanel();
+        jPanel6 = new javax.swing.JPanel();
+        kGradientPanel8 = new keeptoo.KGradientPanel();
+        jPanel2 = new javax.swing.JPanel();
+        cbType = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table1 = new javax.swing.JTable();
+        kGradientPanel9 = new keeptoo.KGradientPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jPanel7 = new javax.swing.JPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTabbedPane8 = new javax.swing.JTabbedPane();
-        jLabel14 = new javax.swing.JLabel();
+        txtUName = new javax.swing.JLabel();
+        txtUregion = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        Clock = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
-
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText("Dashboard");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(50, 0, 320, 74);
-
-        jTabbedPane9.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
-
-        jPanel2.setLayout(null);
-
-        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Pharmacy Sales", "Doctor Sales" }));
-        cbType.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTypeActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
-        jPanel2.add(cbType);
-        cbType.setBounds(40, 30, 140, 26);
+        getContentPane().setLayout(null);
+        getContentPane().add(jTabbedPane8);
+        jTabbedPane8.setBounds(40, 70, 2, 4);
 
-        table1.setModel(table1.getModel());
-        jScrollPane1.setViewportView(table1);
-        if (table1.getColumnModel().getColumnCount() > 0) {
-            table1.getColumnModel().getColumn(0).setHeaderValue("Pharmacy Id");
-            table1.getColumnModel().getColumn(1).setHeaderValue("Pharmacy Name");
-            table1.getColumnModel().getColumn(2).setHeaderValue("Product ID");
-            table1.getColumnModel().getColumn(3).setHeaderValue("Product Name");
-            table1.getColumnModel().getColumn(4).setHeaderValue("Product Volume");
-            table1.getColumnModel().getColumn(5).setHeaderValue("Product Qty");
-            table1.getColumnModel().getColumn(6).setHeaderValue("Sales Amount");
-            table1.getColumnModel().getColumn(7).setHeaderValue("Sale Date");
-        }
+        kGradientPanel1.setkEndColor(new java.awt.Color(0, 153, 153));
+        kGradientPanel1.setkStartColor(new java.awt.Color(255, 102, 204));
+        kGradientPanel1.setLayout(null);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(23, 70, 860, 310);
-
-        jTabbedPane9.addTab("Sales Check", jPanel2);
+        jTabbedPane9.setBackground(new java.awt.Color(153, 0, 255));
+        jTabbedPane9.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
 
         jPanel4.setLayout(null);
 
+        tblthree.setBackground(new java.awt.Color(204, 0, 255));
+        tblthree.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 0, 102)));
+        tblthree.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 12)); // NOI18N
         tblthree.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -155,6 +174,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4.add(cbReport);
         cbReport.setBounds(40, 40, 150, 26);
 
+        btnReport.setBackground(new java.awt.Color(204, 0, 204));
         btnReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/printer_1.png"))); // NOI18N
         btnReport.setText("Print Records");
         btnReport.addActionListener(new java.awt.event.ActionListener() {
@@ -165,20 +185,166 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4.add(btnReport);
         btnReport.setBounds(630, 60, 240, 110);
 
+        kGradientPanel3.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel3.setkStartColor(new java.awt.Color(255, 102, 255));
+
+        javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
+        kGradientPanel3.setLayout(kGradientPanel3Layout);
+        kGradientPanel3Layout.setHorizontalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
+        );
+        kGradientPanel3Layout.setVerticalGroup(
+            kGradientPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(kGradientPanel3);
+        kGradientPanel3.setBounds(0, -10, 920, 470);
+
         jTabbedPane9.addTab("Reports", jPanel4);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 898, Short.MAX_VALUE)
+        jPanel3.setLayout(null);
+
+        tbltwo.setBackground(new java.awt.Color(204, 0, 255));
+        tbltwo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 153)));
+        tbltwo.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 12)); // NOI18N
+        tbltwo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tbltwo);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(40, 90, 360, 290);
+
+        cbChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Doctors", "Pharmacy", "Products" }));
+        cbChoose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbChooseActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cbChoose);
+        cbChoose.setBounds(40, 30, 140, 26);
+        jPanel3.add(txtId);
+        txtId.setBounds(490, 40, 100, 24);
+        jPanel3.add(txtName);
+        txtName.setBounds(650, 40, 110, 24);
+        jPanel3.add(txtVol);
+        txtVol.setBounds(650, 110, 110, 24);
+        jPanel3.add(txtPrice);
+        txtPrice.setBounds(650, 190, 110, 24);
+
+        btnEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
+        btnEnter.setText("Enter");
+        btnEnter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEnterMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnEnter);
+        btnEnter.setBounds(510, 260, 250, 90);
+
+        lblid.setText("Enter ID");
+        jPanel3.add(lblid);
+        lblid.setBounds(490, 20, 80, 16);
+
+        lbln.setText("Enter Name");
+        jPanel3.add(lbln);
+        lbln.setBounds(650, 20, 80, 16);
+
+        lblVol.setText("Enter Volume");
+        jPanel3.add(lblVol);
+        lblVol.setBounds(650, 90, 80, 16);
+
+        lblP.setText("Enter Price");
+        jPanel3.add(lblP);
+        lblP.setBounds(650, 170, 80, 16);
+
+        kGradientPanel5.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel5.setkStartColor(new java.awt.Color(255, 102, 255));
+
+        javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
+        kGradientPanel5.setLayout(kGradientPanel5Layout);
+        kGradientPanel5Layout.setHorizontalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 399, Short.MAX_VALUE)
+        kGradientPanel5Layout.setVerticalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
-        jTabbedPane9.addTab("Settings", jPanel6);
+        jPanel3.add(kGradientPanel5);
+        kGradientPanel5.setBounds(0, -10, 920, 470);
+
+        jTabbedPane9.addTab("Clients & Stock", jPanel3);
+
+        jPanel5.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jPanel5ComponentShown(evt);
+            }
+        });
+        jPanel5.setLayout(null);
+
+        btnMaps.setBackground(new java.awt.Color(153, 0, 255));
+        btnMaps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
+        btnMaps.setText("Open Maps");
+        btnMaps.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMapsMouseClicked(evt);
+            }
+        });
+        jPanel5.add(btnMaps);
+        btnMaps.setBounds(540, 90, 250, 92);
+
+        kGradientPanel6.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel6.setkStartColor(new java.awt.Color(255, 102, 255));
+
+        tblfour.setBackground(new java.awt.Color(204, 0, 255));
+        tblfour.setBorder(new javax.swing.border.MatteBorder(null));
+        tblfour.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 12)); // NOI18N
+        tblfour.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tblfour);
+
+        javax.swing.GroupLayout kGradientPanel6Layout = new javax.swing.GroupLayout(kGradientPanel6);
+        kGradientPanel6.setLayout(kGradientPanel6Layout);
+        kGradientPanel6Layout.setHorizontalGroup(
+            kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(440, Short.MAX_VALUE))
+        );
+        kGradientPanel6Layout.setVerticalGroup(
+            kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+
+        jPanel5.add(kGradientPanel6);
+        kGradientPanel6.setBounds(-10, 0, 930, 470);
+
+        jTabbedPane9.addTab("Sellers", jPanel5);
 
         jPanel1.setLayout(null);
 
@@ -274,6 +440,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(txtdocN);
         txtdocN.setBounds(740, 210, 150, 24);
 
+        btnPhar.setBackground(new java.awt.Color(153, 0, 153));
         btnPhar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
         btnPhar.setText("Enter Pharmacy Sales");
         btnPhar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -284,6 +451,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(btnPhar);
         btnPhar.setBounds(53, 247, 210, 70);
 
+        btnDoc.setBackground(new java.awt.Color(153, 0, 153));
         btnDoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
         btnDoc.setText("Enter Doctor Sales");
         btnDoc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -294,97 +462,198 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(btnDoc);
         btnDoc.setBounds(510, 250, 200, 70);
 
+        kGradientPanel7.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel7.setkStartColor(new java.awt.Color(255, 102, 255));
+
+        javax.swing.GroupLayout kGradientPanel7Layout = new javax.swing.GroupLayout(kGradientPanel7);
+        kGradientPanel7.setLayout(kGradientPanel7Layout);
+        kGradientPanel7Layout.setHorizontalGroup(
+            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
+        );
+        kGradientPanel7Layout.setVerticalGroup(
+            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(kGradientPanel7);
+        kGradientPanel7.setBounds(0, -10, 920, 470);
+
         jTabbedPane9.addTab("Sales", jPanel1);
 
-        jPanel3.setLayout(null);
+        kGradientPanel8.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel8.setkStartColor(new java.awt.Color(255, 102, 255));
 
-        tbltwo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
+        javax.swing.GroupLayout kGradientPanel8Layout = new javax.swing.GroupLayout(kGradientPanel8);
+        kGradientPanel8.setLayout(kGradientPanel8Layout);
+        kGradientPanel8Layout.setHorizontalGroup(
+            kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
+        );
+        kGradientPanel8Layout.setVerticalGroup(
+            kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
 
-            }
-        ));
-        jScrollPane2.setViewportView(tbltwo);
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 90, 360, 290);
+        jTabbedPane9.addTab("Settings", jPanel6);
 
-        cbChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Doctors", "Pharmacy", "Products" }));
-        cbChoose.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setLayout(null);
+
+        cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Pharmacy Sales", "Doctor Sales" }));
+        cbType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbChooseActionPerformed(evt);
+                cbTypeActionPerformed(evt);
             }
         });
-        jPanel3.add(cbChoose);
-        cbChoose.setBounds(40, 30, 140, 26);
-        jPanel3.add(txtId);
-        txtId.setBounds(490, 40, 100, 24);
-        jPanel3.add(txtName);
-        txtName.setBounds(650, 40, 110, 24);
-        jPanel3.add(txtVol);
-        txtVol.setBounds(650, 110, 110, 24);
-        jPanel3.add(txtPrice);
-        txtPrice.setBounds(650, 190, 110, 24);
+        jPanel2.add(cbType);
+        cbType.setBounds(40, 30, 140, 26);
 
-        btnEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
-        btnEnter.setText("Enter");
-        btnEnter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEnterMouseClicked(evt);
-            }
-        });
-        jPanel3.add(btnEnter);
-        btnEnter.setBounds(510, 260, 250, 90);
+        table1.setBackground(new java.awt.Color(204, 0, 255));
+        table1.setBorder(new javax.swing.border.MatteBorder(null));
+        table1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 12)); // NOI18N
+        table1.setModel(table1.getModel());
+        jScrollPane1.setViewportView(table1);
+        if (table1.getColumnModel().getColumnCount() > 0) {
+            table1.getColumnModel().getColumn(0).setHeaderValue("Pharmacy Id");
+            table1.getColumnModel().getColumn(1).setHeaderValue("Pharmacy Name");
+            table1.getColumnModel().getColumn(2).setHeaderValue("Product ID");
+            table1.getColumnModel().getColumn(3).setHeaderValue("Product Name");
+            table1.getColumnModel().getColumn(4).setHeaderValue("Product Volume");
+            table1.getColumnModel().getColumn(5).setHeaderValue("Product Qty");
+            table1.getColumnModel().getColumn(6).setHeaderValue("Sales Amount");
+            table1.getColumnModel().getColumn(7).setHeaderValue("Sale Date");
+        }
 
-        lblid.setText("Enter ID");
-        jPanel3.add(lblid);
-        lblid.setBounds(490, 20, 80, 16);
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(23, 70, 860, 310);
 
-        lbln.setText("Enter Name");
-        jPanel3.add(lbln);
-        lbln.setBounds(650, 20, 80, 16);
+        kGradientPanel9.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel9.setkStartColor(new java.awt.Color(255, 102, 255));
 
-        lblVol.setText("Enter Volume");
-        jPanel3.add(lblVol);
-        lblVol.setBounds(650, 90, 80, 16);
+        javax.swing.GroupLayout kGradientPanel9Layout = new javax.swing.GroupLayout(kGradientPanel9);
+        kGradientPanel9.setLayout(kGradientPanel9Layout);
+        kGradientPanel9Layout.setHorizontalGroup(
+            kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 920, Short.MAX_VALUE)
+        );
+        kGradientPanel9Layout.setVerticalGroup(
+            kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 470, Short.MAX_VALUE)
+        );
 
-        lblP.setText("Enter Price");
-        jPanel3.add(lblP);
-        lblP.setBounds(650, 170, 80, 16);
+        jPanel2.add(kGradientPanel9);
+        kGradientPanel9.setBounds(0, -10, 920, 470);
 
-        jTabbedPane9.addTab("Clients & Stock", jPanel3);
+        jTabbedPane9.addTab("Sales Check", jPanel2);
 
-        jPanel5.setLayout(null);
+        kGradientPanel1.add(jTabbedPane9);
+        jTabbedPane9.setBounds(210, 100, 920, 480);
 
-        btnMaps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
-        btnMaps.setText("Open Maps");
-        btnMaps.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMapsMouseClicked(evt);
-            }
-        });
-        jPanel5.add(btnMaps);
-        btnMaps.setBounds(540, 90, 250, 92);
+        jPanel7.setLayout(null);
 
-        jTabbedPane9.addTab("Sellers", jPanel5);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/profile.png"))); // NOI18N
 
-        getContentPane().add(jTabbedPane9);
-        jTabbedPane9.setBounds(60, 70, 900, 430);
+        txtUName.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 14)); // NOI18N
+        txtUName.setForeground(new java.awt.Color(0, 0, 102));
+        txtUName.setText("jLabel14");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/—Pngtree—blue gradient watercolor wild poster_978316.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -30, 980, 550);
-        getContentPane().add(jTabbedPane8);
-        jTabbedPane8.setBounds(40, 70, 2, 4);
+        txtUregion.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 14)); // NOI18N
+        txtUregion.setForeground(new java.awt.Color(0, 0, 102));
+        txtUregion.setText("jLabel14");
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/—Pngtree—green gradient watercolor ink effect_978313.jpg"))); // NOI18N
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(40, 460, 950, 440);
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(txtUName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 16, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtUregion, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+        );
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtUregion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(396, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.setLayer(jPanel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(kGradientPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(kGradientPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        kGradientPanel1.add(jLayeredPane1);
+        jLayeredPane1.setBounds(0, 0, 170, 610);
+
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel1.setText("Dashboard");
+        kGradientPanel1.add(jLabel1);
+        jLabel1.setBounds(840, 10, 290, 110);
+
+        Clock.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        Clock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/placeholder.png"))); // NOI18N
+        Clock.setText("jLabel14");
+        kGradientPanel1.add(Clock);
+        Clock.setBounds(220, 40, 160, 20);
+
+        getContentPane().add(kGradientPanel1);
+        kGradientPanel1.setBounds(0, 0, 1160, 610);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -655,7 +924,7 @@ public class Dashboard extends javax.swing.JFrame {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Database not Connected.");
                 System.out.println(e.getMessage());
-             
+
             }
 
         } else if (cbChoose.getSelectedIndex() == 2) {
@@ -675,7 +944,7 @@ public class Dashboard extends javax.swing.JFrame {
             try {
                 Connection con = getConnection();
                 Statement stmt = con.createStatement();
-                String sqlQ = " INSERT INTO `products` VALUES ('"+txtId.getText()+"', '"+txtName.getText()+"', '"+txtVol.getText().toString()+"', '"+txtPrice.getText().toString()+"')";
+                String sqlQ = " INSERT INTO `products` VALUES ('" + txtId.getText() + "', '" + txtName.getText() + "', '" + txtVol.getText().toString() + "', '" + txtPrice.getText().toString() + "')";
                 stmt.executeUpdate(sqlQ);
                 JOptionPane.showMessageDialog(null, "Data Saved.");
                 txtId.setText(null);
@@ -747,30 +1016,76 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_cbReportActionPerformed
 
     private void btnReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportActionPerformed
-    
-       if (cbReport.getSelectedIndex() == 1){
-           MessageFormat header = new MessageFormat("Pharmacy Sales Report");
-       MessageFormat footer = new MessageFormat("Powered by Softgenix tech");
-       try{
-          tblthree.print(JTable.PrintMode.FIT_WIDTH,header,footer);
-       }catch(PrinterException e){
-           JOptionPane.showMessageDialog(null, "Cannot Print "+ e.getMessage());
-       }
-       }else if (cbReport.getSelectedIndex() == 2){
-           MessageFormat header = new MessageFormat("Doctor Sales Report");
-       MessageFormat footer = new MessageFormat("Powered by Softgenix tech");
-       try{
-          tblthree.print(JTable.PrintMode.FIT_WIDTH,header,footer);
-       }catch(PrinterException e){
-           JOptionPane.showMessageDialog(null, "Cannot Print "+ e.getMessage());
-       }
-       }
+
+        if (cbReport.getSelectedIndex() == 1) {
+            MessageFormat header = new MessageFormat("Pharmacy Sales Report");
+            MessageFormat footer = new MessageFormat("Powered by Softgenix tech");
+            try {
+                tblthree.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+            } catch (PrinterException e) {
+                JOptionPane.showMessageDialog(null, "Cannot Print " + e.getMessage());
+            }
+        } else if (cbReport.getSelectedIndex() == 2) {
+            MessageFormat header = new MessageFormat("Doctor Sales Report");
+            MessageFormat footer = new MessageFormat("Powered by Softgenix tech");
+            try {
+                tblthree.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+            } catch (PrinterException e) {
+                JOptionPane.showMessageDialog(null, "Cannot Print " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_btnReportActionPerformed
 
     private void btnMapsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMapsMouseClicked
         GoogleMapsSample newMap = new GoogleMapsSample();
         newMap.createAndShowWindow();
     }//GEN-LAST:event_btnMapsMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        try {
+
+            Connection con = getConnection();
+            PreparedStatement pstm = con.prepareStatement("SELECT fname,lname,region FROM `login`  WHERE email = '" + email + "'");
+            
+            ResultSet Rs = pstm.executeQuery();
+            while (Rs.next()) {
+                txtUName.setText(Rs.getString("fname") + " " + Rs.getString("lname"));
+                txtUregion.setText(Rs.getString("region"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jPanel5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel5ComponentShown
+          DefaultTableModel model = new DefaultTableModel();
+
+            model.addColumn("Distributor ID");
+            model.addColumn("Distributor Name");
+            model.addColumn("Distributor City");
+            
+
+            try {
+                Connection con = getConnection();
+                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `distributor`");
+                ResultSet Rs = pstm.executeQuery();
+                while (Rs.next()) {
+                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2), Rs.getString(3)});
+                    tblfour.setModel(model);
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+    }//GEN-LAST:event_jPanel5ComponentShown
+
+   
+
+    private void updateClock() {
+
+        Clock.setText(dateFormat.format(Calendar.getInstance().getTime()));
+    }
 
     public Connection getConnection() {
         Connection con;
@@ -786,7 +1101,6 @@ public class Dashboard extends javax.swing.JFrame {
 
     public static void main(String args[]) {
 
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -796,6 +1110,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Clock;
     private javax.swing.JButton btnDoc;
     private javax.swing.JButton btnEnter;
     private javax.swing.JButton btnMaps;
@@ -810,7 +1125,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -819,28 +1133,42 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
+    private keeptoo.KGradientPanel kGradientPanel3;
+    private keeptoo.KGradientPanel kGradientPanel5;
+    private keeptoo.KGradientPanel kGradientPanel6;
+    private keeptoo.KGradientPanel kGradientPanel7;
+    private keeptoo.KGradientPanel kGradientPanel8;
+    private keeptoo.KGradientPanel kGradientPanel9;
     private javax.swing.JLabel lblP;
     private javax.swing.JLabel lblVol;
     private javax.swing.JLabel lblid;
     private javax.swing.JLabel lbln;
     private javax.swing.JTable table1;
+    private javax.swing.JTable tblfour;
     private javax.swing.JTable tblthree;
     private javax.swing.JTable tbltwo;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtSaleA;
+    private javax.swing.JLabel txtUName;
+    private javax.swing.JLabel txtUregion;
     private javax.swing.JTextField txtVol;
     private javax.swing.JTextField txtdocID;
     private javax.swing.JTextField txtdocN;
@@ -854,4 +1182,9 @@ public class Dashboard extends javax.swing.JFrame {
     private org.jdatepicker.impl.UtilCalendarModel utilCalendarModel1;
     private org.jdatepicker.impl.UtilCalendarModel utilCalendarModel2;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+       updateClock();
+    }
 }
