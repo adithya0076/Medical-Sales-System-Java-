@@ -17,7 +17,7 @@ import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
-public class Dashboard extends javax.swing.JFrame implements ActionListener{
+public class Dashboard extends javax.swing.JFrame implements ActionListener {
 
     String email;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
@@ -113,6 +113,14 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         kGradientPanel7 = new keeptoo.KGradientPanel();
         jPanel6 = new javax.swing.JPanel();
         kGradientPanel8 = new keeptoo.KGradientPanel();
+        btnLogout = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         cbType = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -128,6 +136,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         Clock = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1160, 610));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -165,6 +174,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         jPanel4.add(jScrollPane3);
         jScrollPane3.setBounds(36, 96, 560, 270);
 
+        cbReport.setBackground(new java.awt.Color(204, 0, 204));
         cbReport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Pharmacy Sales", "Doctor Sales" }));
         cbReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +235,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(40, 90, 360, 290);
 
+        cbChoose.setBackground(new java.awt.Color(204, 0, 204));
         cbChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Doctors", "Pharmacy", "Products" }));
         cbChoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +253,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         jPanel3.add(txtPrice);
         txtPrice.setBounds(650, 190, 110, 24);
 
+        btnEnter.setBackground(new java.awt.Color(204, 0, 204));
         btnEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
         btnEnter.setText("Enter");
         btnEnter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -484,42 +496,106 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         kGradientPanel8.setkEndColor(new java.awt.Color(102, 102, 255));
         kGradientPanel8.setkStartColor(new java.awt.Color(255, 102, 255));
 
+        btnLogout.setBackground(new java.awt.Color(204, 0, 204));
+        btnLogout.setText("Log Out");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel14.setText("About us");
+
+        jLabel15.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jLabel15.setText("Powered by Softgenix Technologies");
+
+        jLabel16.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jLabel16.setText("2021");
+
+        jLabel17.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/icons8-facebook-24.png"))); // NOI18N
+        jLabel17.setText("Like us on facebook");
+
+        jLabel18.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/icons8-instagram-24.png"))); // NOI18N
+        jLabel18.setText("Follow us on Instagram");
+
+        jLabel19.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jLabel19.setText("+94  76 569 42 48");
+
+        jLabel20.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        jLabel20.setText("Contact Us :");
+
         javax.swing.GroupLayout kGradientPanel8Layout = new javax.swing.GroupLayout(kGradientPanel8);
         kGradientPanel8.setLayout(kGradientPanel8Layout);
         kGradientPanel8Layout.setHorizontalGroup(
             kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel8Layout.createSequentialGroup()
+                .addContainerGap(563, Short.MAX_VALUE)
+                .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(148, 148, 148))
+                        .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27)
+                            .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel18))
+                            .addContainerGap()))
+                    .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17))))
         );
         kGradientPanel8Layout.setVerticalGroup(
             kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addGap(20, 20, 20)
+                .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel19))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(kGradientPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane9.addTab("Settings", jPanel6);
 
         jPanel2.setLayout(null);
 
+        cbType.setBackground(new java.awt.Color(204, 0, 204));
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Pharmacy Sales", "Doctor Sales" }));
         cbType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -574,7 +650,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/profile.png"))); // NOI18N
 
-        txtUName.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 14)); // NOI18N
+        txtUName.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
         txtUName.setForeground(new java.awt.Color(0, 0, 102));
         txtUName.setText("jLabel14");
 
@@ -588,18 +664,16 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(txtUName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 16, Short.MAX_VALUE)))
+                .addComponent(jLabel2)
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtUName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtUregion, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(20, 20, 20))
         );
         kGradientPanel2Layout.setVerticalGroup(
             kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -644,7 +718,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Dashboard");
         kGradientPanel1.add(jLabel1);
-        jLabel1.setBounds(840, 10, 290, 110);
+        jLabel1.setBounds(840, 10, 310, 150);
 
         Clock.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
         Clock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/placeholder.png"))); // NOI18N
@@ -1042,12 +1116,12 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_btnMapsMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+
         try {
 
             Connection con = getConnection();
             PreparedStatement pstm = con.prepareStatement("SELECT fname,lname,region FROM `login`  WHERE email = '" + email + "'");
-            
+
             ResultSet Rs = pstm.executeQuery();
             while (Rs.next()) {
                 txtUName.setText(Rs.getString("fname") + " " + Rs.getString("lname"));
@@ -1059,28 +1133,32 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
     }//GEN-LAST:event_formWindowOpened
 
     private void jPanel5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel5ComponentShown
-          DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel();
 
-            model.addColumn("Distributor ID");
-            model.addColumn("Distributor Name");
-            model.addColumn("Distributor City");
-            
+        model.addColumn("Distributor ID");
+        model.addColumn("Distributor Name");
+        model.addColumn("Distributor City");
 
-            try {
-                Connection con = getConnection();
-                PreparedStatement pstm = con.prepareStatement("SELECT * FROM `distributor`");
-                ResultSet Rs = pstm.executeQuery();
-                while (Rs.next()) {
-                    model.addRow(new Object[]{Rs.getString(1), Rs.getString(2), Rs.getString(3)});
-                    tblfour.setModel(model);
+        try {
+            Connection con = getConnection();
+            PreparedStatement pstm = con.prepareStatement("SELECT * FROM `distributor`");
+            ResultSet Rs = pstm.executeQuery();
+            while (Rs.next()) {
+                model.addRow(new Object[]{Rs.getString(1), Rs.getString(2), Rs.getString(3)});
+                tblfour.setModel(model);
 
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
             }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jPanel5ComponentShown
 
-   
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        this.hide();
+        LoginScreen Ls = new LoginScreen();
+        Ls.show();
+
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void updateClock() {
 
@@ -1113,6 +1191,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel Clock;
     private javax.swing.JButton btnDoc;
     private javax.swing.JButton btnEnter;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMaps;
     private javax.swing.JButton btnPhar;
     private javax.swing.JButton btnReport;
@@ -1125,7 +1204,14 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1185,6 +1271,6 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       updateClock();
+        updateClock();
     }
 }

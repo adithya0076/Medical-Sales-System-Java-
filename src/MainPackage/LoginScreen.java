@@ -5,7 +5,15 @@
  */
 package MainPackage;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -21,9 +29,9 @@ public class LoginScreen extends javax.swing.JFrame {
     /**
      * Creates new form LoginScreen
      */
- String Uname;
-    
-    
+    String Uname;
+    File file = new File("save.txt");
+
     public LoginScreen() {
         initComponents();
         setVisible(true);
@@ -31,10 +39,56 @@ public class LoginScreen extends javax.swing.JFrame {
         setSize(930, 560);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+         UPDATE(); 
+         
+          btnLogin.addMouseListener(new MouseAdapter(){
+           public void mouseReleased(MouseEvent m){
+
+               if(remember.isSelected()){
+                  SAVE(); //Save This UserName and his PassWord     
+               }
+
+           }//end of mouseReleased
+       });
     }
 
-  
-    
+    public void SAVE() {      //Save the UserName and Password (for one user)
+
+        try {
+            if (!file.exists()) {
+                file.createNewFile();  //if the file !exist create a new one
+            }
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file.getAbsolutePath()));
+            bw.write(txtUsername.getText()); //write the name
+            bw.newLine(); //leave a new Line
+            bw.write(txtPwd.getPassword()); //write the password
+            bw.close(); //close the BufferdWriter
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }//End Of Save
+
+    public void UPDATE() { //UPDATE ON OPENING THE APPLICATION
+
+        try {
+            if (file.exists()) {    //if this file exists
+
+                Scanner scan = new Scanner(file);   //Use Scanner to read the File
+
+                txtUsername.setText(scan.nextLine());  //append the text to name field
+                txtPwd.setText(scan.nextLine()); //append the text to password field
+                scan.close();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }//End OF UPDATE
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,7 +104,6 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnLogin = new java.awt.Button();
         txtUsername = new java.awt.TextField();
-        checkbox1 = new java.awt.Checkbox();
         button2 = new java.awt.Button();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -58,6 +111,7 @@ public class LoginScreen extends javax.swing.JFrame {
         kGradientPanel1 = new keeptoo.KGradientPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        remember = new javax.swing.JRadioButton();
 
         jLabel2.setText("jLabel2");
 
@@ -106,13 +160,6 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(txtUsername);
         txtUsername.setBounds(320, 270, 180, 30);
 
-        checkbox1.setBackground(new java.awt.Color(255, 255, 255));
-        checkbox1.setForeground(new java.awt.Color(0, 0, 102));
-        checkbox1.setLabel("Remember username");
-        checkbox1.setName("chbRem"); // NOI18N
-        getContentPane().add(checkbox1);
-        checkbox1.setBounds(210, 360, 141, 20);
-
         button2.setBackground(new java.awt.Color(51, 51, 255));
         button2.setLabel("Register");
         button2.setName("btnRegister"); // NOI18N
@@ -156,6 +203,10 @@ public class LoginScreen extends javax.swing.JFrame {
         kGradientPanel1.add(jLabel8);
         jLabel8.setBounds(20, 10, 440, 70);
 
+        remember.setText("Remember me");
+        kGradientPanel1.add(remember);
+        remember.setBounds(210, 360, 140, 28);
+
         getContentPane().add(kGradientPanel1);
         kGradientPanel1.setBounds(0, 0, 920, 560);
 
@@ -187,8 +238,8 @@ public class LoginScreen extends javax.swing.JFrame {
 
                 JOptionPane.showMessageDialog(null, "You have successfully logged in");
                 this.hide();
-                Dashboard ds = new Dashboard(this,databaseUsername);
-                
+                Dashboard ds = new Dashboard(this, databaseUsername);
+
                 ds.show();
             } else {
                 JOptionPane.showMessageDialog(null, "Wrong Username & Password");
@@ -204,7 +255,7 @@ public class LoginScreen extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Database not connected.");
         }
-       
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -238,7 +289,7 @@ public class LoginScreen extends javax.swing.JFrame {
             public void run() {
                 LoginScreen ls = new LoginScreen();
                 ls.setVisible(true);
-              
+
             }
         });
     }
@@ -246,7 +297,6 @@ public class LoginScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnLogin;
     private java.awt.Button button2;
-    private java.awt.Checkbox checkbox1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -256,13 +306,14 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private keeptoo.KGradientPanel kGradientPanel1;
+    private javax.swing.JRadioButton remember;
     private javax.swing.JPasswordField txtPwd;
     private java.awt.TextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     String getUname() {
-          
-        return  Uname;
+
+        return Uname;
     }
-   
+
 }
