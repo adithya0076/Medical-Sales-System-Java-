@@ -120,6 +120,7 @@ public class RegisterScreen extends javax.swing.JFrame  {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(670, 80, 250, 170);
 
+        btnRegister.setBackground(new java.awt.Color(204, 0, 204));
         btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +168,7 @@ public class RegisterScreen extends javax.swing.JFrame  {
           Statement stmt =  con.createStatement();
             String sqlQ = "insert into login values ('" + email + "','" + fn + "','" + ln + "','"+region+"','"+pwd+"')";
                 stmt.executeUpdate(sqlQ);
-                JOptionPane.showMessageDialog(null, "Student Registered.");
+                JOptionPane.showMessageDialog(null, "Employee Registered.");
                   this.hide();
              LoginScreen ls = new LoginScreen(); 
              ls.show();

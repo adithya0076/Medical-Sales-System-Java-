@@ -66,20 +66,6 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
         cbReport = new javax.swing.JComboBox<>();
         btnReport = new javax.swing.JButton();
         kGradientPanel3 = new keeptoo.KGradientPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tbltwo = new javax.swing.JTable();
-        cbChoose = new javax.swing.JComboBox<>();
-        txtId = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        txtVol = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        btnEnter = new javax.swing.JButton();
-        lblid = new javax.swing.JLabel();
-        lbln = new javax.swing.JLabel();
-        lblVol = new javax.swing.JLabel();
-        lblP = new javax.swing.JLabel();
-        kGradientPanel5 = new keeptoo.KGradientPanel();
         jPanel5 = new javax.swing.JPanel();
         btnMaps = new javax.swing.JButton();
         kGradientPanel6 = new keeptoo.KGradientPanel();
@@ -126,16 +112,34 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
         jScrollPane1 = new javax.swing.JScrollPane();
         table1 = new javax.swing.JTable();
         kGradientPanel9 = new keeptoo.KGradientPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbltwo = new javax.swing.JTable();
+        cbChoose = new javax.swing.JComboBox<>();
+        txtId = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtVol = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
+        btnEnter = new javax.swing.JButton();
+        lblid = new javax.swing.JLabel();
+        lbln = new javax.swing.JLabel();
+        lblVol = new javax.swing.JLabel();
+        lblP = new javax.swing.JLabel();
+        kGradientPanel5 = new keeptoo.KGradientPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel7 = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jLabel2 = new javax.swing.JLabel();
         txtUName = new javax.swing.JLabel();
         txtUregion = new javax.swing.JLabel();
+        btnLogout1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         Clock = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1160, 610));
+        setResizable(false);
         setSize(new java.awt.Dimension(1160, 610));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -213,91 +217,6 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
         kGradientPanel3.setBounds(0, -10, 920, 470);
 
         jTabbedPane9.addTab("Reports", jPanel4);
-
-        jPanel3.setLayout(null);
-
-        tbltwo.setBackground(new java.awt.Color(204, 0, 255));
-        tbltwo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 153)));
-        tbltwo.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 12)); // NOI18N
-        tbltwo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(tbltwo);
-
-        jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(40, 90, 360, 290);
-
-        cbChoose.setBackground(new java.awt.Color(204, 0, 204));
-        cbChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Doctors", "Pharmacy", "Products" }));
-        cbChoose.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbChooseActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cbChoose);
-        cbChoose.setBounds(40, 30, 140, 26);
-        jPanel3.add(txtId);
-        txtId.setBounds(490, 40, 100, 24);
-        jPanel3.add(txtName);
-        txtName.setBounds(650, 40, 110, 24);
-        jPanel3.add(txtVol);
-        txtVol.setBounds(650, 110, 110, 24);
-        jPanel3.add(txtPrice);
-        txtPrice.setBounds(650, 190, 110, 24);
-
-        btnEnter.setBackground(new java.awt.Color(204, 0, 204));
-        btnEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
-        btnEnter.setText("Enter");
-        btnEnter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEnterMouseClicked(evt);
-            }
-        });
-        jPanel3.add(btnEnter);
-        btnEnter.setBounds(510, 260, 250, 90);
-
-        lblid.setText("Enter ID");
-        jPanel3.add(lblid);
-        lblid.setBounds(490, 20, 80, 16);
-
-        lbln.setText("Enter Name");
-        jPanel3.add(lbln);
-        lbln.setBounds(650, 20, 80, 16);
-
-        lblVol.setText("Enter Volume");
-        jPanel3.add(lblVol);
-        lblVol.setBounds(650, 90, 80, 16);
-
-        lblP.setText("Enter Price");
-        jPanel3.add(lblP);
-        lblP.setBounds(650, 170, 80, 16);
-
-        kGradientPanel5.setkEndColor(new java.awt.Color(102, 102, 255));
-        kGradientPanel5.setkStartColor(new java.awt.Color(255, 102, 255));
-
-        javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
-        kGradientPanel5.setLayout(kGradientPanel5Layout);
-        kGradientPanel5Layout.setHorizontalGroup(
-            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
-        );
-        kGradientPanel5Layout.setVerticalGroup(
-            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(kGradientPanel5);
-        kGradientPanel5.setBounds(0, -10, 920, 470);
-
-        jTabbedPane9.addTab("Clients & Stock", jPanel3);
 
         jPanel5.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -643,8 +562,93 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
 
         jTabbedPane9.addTab("Sales Check", jPanel2);
 
+        jPanel3.setLayout(null);
+
+        tbltwo.setBackground(new java.awt.Color(204, 0, 255));
+        tbltwo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 153)));
+        tbltwo.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 12)); // NOI18N
+        tbltwo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tbltwo);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(40, 90, 360, 290);
+
+        cbChoose.setBackground(new java.awt.Color(204, 0, 204));
+        cbChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Doctors", "Pharmacy", "Products" }));
+        cbChoose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbChooseActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cbChoose);
+        cbChoose.setBounds(40, 30, 140, 26);
+        jPanel3.add(txtId);
+        txtId.setBounds(490, 40, 100, 24);
+        jPanel3.add(txtName);
+        txtName.setBounds(650, 40, 110, 24);
+        jPanel3.add(txtVol);
+        txtVol.setBounds(650, 110, 110, 24);
+        jPanel3.add(txtPrice);
+        txtPrice.setBounds(650, 190, 110, 24);
+
+        btnEnter.setBackground(new java.awt.Color(204, 0, 204));
+        btnEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/enter (1).png"))); // NOI18N
+        btnEnter.setText("Enter");
+        btnEnter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEnterMouseClicked(evt);
+            }
+        });
+        jPanel3.add(btnEnter);
+        btnEnter.setBounds(510, 260, 250, 90);
+
+        lblid.setText("Enter ID");
+        jPanel3.add(lblid);
+        lblid.setBounds(490, 20, 80, 16);
+
+        lbln.setText("Enter Name");
+        jPanel3.add(lbln);
+        lbln.setBounds(650, 20, 80, 16);
+
+        lblVol.setText("Enter Volume");
+        jPanel3.add(lblVol);
+        lblVol.setBounds(650, 90, 80, 16);
+
+        lblP.setText("Enter Price");
+        jPanel3.add(lblP);
+        lblP.setBounds(650, 170, 80, 16);
+
+        kGradientPanel5.setkEndColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel5.setkStartColor(new java.awt.Color(255, 102, 255));
+
+        javax.swing.GroupLayout kGradientPanel5Layout = new javax.swing.GroupLayout(kGradientPanel5);
+        kGradientPanel5.setLayout(kGradientPanel5Layout);
+        kGradientPanel5Layout.setHorizontalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 940, Short.MAX_VALUE)
+        );
+        kGradientPanel5Layout.setVerticalGroup(
+            kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(kGradientPanel5);
+        kGradientPanel5.setBounds(-10, -10, 940, 440);
+
+        jTabbedPane9.addTab("Clients & Stock", jPanel3);
+
         kGradientPanel1.add(jTabbedPane9);
-        jTabbedPane9.setBounds(210, 100, 920, 480);
+        jTabbedPane9.setBounds(190, 100, 920, 460);
 
         jPanel7.setLayout(null);
 
@@ -657,6 +661,14 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
         txtUregion.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 14)); // NOI18N
         txtUregion.setForeground(new java.awt.Color(0, 0, 102));
         txtUregion.setText("jLabel14");
+
+        btnLogout1.setBackground(new java.awt.Color(204, 0, 204));
+        btnLogout1.setText("Log Out");
+        btnLogout1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogout1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
@@ -672,7 +684,9 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtUregion, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUregion, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
         kGradientPanel2Layout.setVerticalGroup(
@@ -684,7 +698,9 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
                 .addComponent(txtUName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtUregion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addComponent(btnLogout1)
+                .addGap(45, 45, 45))
         );
 
         jLayeredPane1.setLayer(jPanel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -714,17 +730,21 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
         kGradientPanel1.add(jLayeredPane1);
         jLayeredPane1.setBounds(0, 0, 170, 610);
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 2, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Dashboard");
         kGradientPanel1.add(jLabel1);
-        jLabel1.setBounds(840, 10, 310, 150);
+        jLabel1.setBounds(690, 20, 200, 100);
 
         Clock.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
         Clock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/placeholder.png"))); // NOI18N
         Clock.setText("jLabel14");
         kGradientPanel1.add(Clock);
         Clock.setBounds(220, 40, 160, 20);
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MainPackage/medicine_1.png"))); // NOI18N
+        kGradientPanel1.add(jLabel21);
+        jLabel21.setBounds(830, -20, 280, 210);
 
         getContentPane().add(kGradientPanel1);
         kGradientPanel1.setBounds(0, 0, 1160, 610);
@@ -1160,6 +1180,12 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
 
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogout1ActionPerformed
+      this.hide();
+        LoginScreen Ls = new LoginScreen();
+        Ls.show();
+    }//GEN-LAST:event_btnLogout1ActionPerformed
+
     private void updateClock() {
 
         Clock.setText(dateFormat.format(Calendar.getInstance().getTime()));
@@ -1192,6 +1218,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JButton btnDoc;
     private javax.swing.JButton btnEnter;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnLogout1;
     private javax.swing.JButton btnMaps;
     private javax.swing.JButton btnPhar;
     private javax.swing.JButton btnReport;
@@ -1212,6 +1239,7 @@ public class Dashboard extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

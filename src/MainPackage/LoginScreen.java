@@ -112,6 +112,7 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         remember = new javax.swing.JRadioButton();
+        btnCPWD = new javax.swing.JLabel();
 
         jLabel2.setText("jLabel2");
 
@@ -205,7 +206,18 @@ public class LoginScreen extends javax.swing.JFrame {
 
         remember.setText("Remember me");
         kGradientPanel1.add(remember);
-        remember.setBounds(210, 360, 140, 28);
+        remember.setBounds(200, 360, 140, 28);
+
+        btnCPWD.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 0, 14)); // NOI18N
+        btnCPWD.setForeground(new java.awt.Color(0, 0, 102));
+        btnCPWD.setText("Change Password");
+        btnCPWD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCPWDMouseClicked(evt);
+            }
+        });
+        kGradientPanel1.add(btnCPWD);
+        btnCPWD.setBounds(391, 370, 110, 16);
 
         getContentPane().add(kGradientPanel1);
         kGradientPanel1.setBounds(0, 0, 920, 560);
@@ -258,6 +270,14 @@ public class LoginScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnCPWDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCPWDMouseClicked
+       this.hide();
+       ChangePassword CP = new ChangePassword();
+       CP.show();
+       
+       
+    }//GEN-LAST:event_btnCPWDMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -295,6 +315,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCPWD;
     private java.awt.Button btnLogin;
     private java.awt.Button button2;
     private javax.swing.JDialog jDialog1;
